@@ -18,14 +18,17 @@
     - High-level modules like `RecipeController` depend on abstractions (`ISearchStrategy`) rather than concrete implementations, promoting flexibility and decoupling.
 
 ## Design Patterns
+
 **Strategy Pattern**:
-    - The strategy pattern is used to define a family of algorithms (search strategies) and make them interchangeable. The `ISearchStrategy` interface and the concrete strategy classes (`SearchByIdStrategy`, `SearchByNameStrategy`, `SearchByIngredientsStrategy`) implement this pattern.
+- The strategy pattern is used to define a family of algorithms (search strategies) and make them interchangeable. The `ISearchStrategy` interface and the concrete strategy classes (`SearchByIdStrategy`, `SearchByNameStrategy`, `SearchByIngredientsStrategy`) implement this pattern.
+
 **Singleton Pattern**:
-    - The `RecipeRepository` class uses the singleton pattern to ensure that only one instance of the repository exists, providing a global point of access to the database.
-**MVC (Model-View-Controller) Pattern
-    - Model: Classes Recipe and RecipeRepository are responsible for data management.
-    - View: Classes AllInfo and SearchForm are responsible for presenting data and interacting with the user.
-    - Controller: The RecipeController class handles the logic between the model and the view.
+- The `RecipeRepository` class uses the singleton pattern to ensure that only one instance of the repository exists, providing a global point of access to the database.
+
+**MVC (Model-View-Controller) Pattern**:
+- **Model**: Classes `Recipe` and `RecipeRepository` are responsible for data management.
+- **View**: Classes `AllInfo` and `SearchForm` are responsible for presenting data and interacting with the user.
+- **Controller**: The `RecipeController` class handles the logic between the model and the view.
 
 ## Refactoring Techniques
 

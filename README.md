@@ -28,11 +28,14 @@
     - Controller: The RecipeController class handles the logic between the model and the view.
 
 ## Refactoring Techniques
-**Extract Method:
-    - Methods like ExecuteSearch in BaseSearchStrategy are extracted to improve readability and reusability, encapsulating the common code for executing database queries.
-**Encapsulate Field:
-    - Direct access to fields is minimized by using properties (e.g., Recipe class properties) to control access and ensure encapsulation.
-**Replace Conditional with Polymorphism:
+
+1. **Extract Method**:
+    - Methods like `ExecuteSearch` in `BaseSearchStrategy` are extracted to improve readability and reusability, encapsulating the common code for executing database queries.
+
+2. **Encapsulate Field**:
+    - Direct access to fields is minimized by using properties (e.g., `Recipe` class properties) to control access and ensure encapsulation.
+
+3. **Replace Conditional with Polymorphism**:
     - The code replaces conditional logic for different search types with polymorphism. Different search behaviors are encapsulated in their respective strategy classes, and the appropriate strategy is selected based on user input.
 
 ## Code Walkthrough

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace lab6.Classes
 {
-    public interface ISearchStrategy
+    public interface IRecipeRepository
     {
-        List<Recipe> Search(IDatabase database, string query);
+        List<Recipe> SearchRecipes(ISearchStrategy searchStrategy, string query);
+        List<Recipe> GetAllRecipes();
     }
-
 }

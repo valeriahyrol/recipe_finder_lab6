@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace lab6.Classes
 {
-    public interface ISearchStrategy
+    public interface IDatabase
     {
-        List<Recipe> Search(IDatabase database, string query);
+        void OpenConnection();
+        void CloseConnection();
+        MySqlConnection GetConnection();
     }
-
 }

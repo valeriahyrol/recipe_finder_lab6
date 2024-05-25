@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace lab6.Classes
 {
-    public class db
+    public class db : IDatabase
     {
         private MySqlConnection connection;
 

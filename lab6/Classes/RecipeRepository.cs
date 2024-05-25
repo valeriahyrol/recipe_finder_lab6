@@ -7,28 +7,25 @@ using System.Threading.Tasks;
 
 namespace lab6.Classes
 {
-    public class RecipeRepository
+    public class RecipeRepository : IRecipeRepository
     {
         private static RecipeRepository instance;
-        private db database;
+        private IDatabase database;
 
-        private RecipeRepository()
+        private RecipeRepository(IDatabase database)
         {
-            string connectionString = "Server=localhost;Database=recipes;Uid=root;Pwd=;";
-            database = new db(connectionString);
+            this.database = database;
         }
 
-        public static RecipeRepository Instance
+        public static RecipeRepository Instance(IDatabase database)
         {
-            get
+            if (instance == null)
             {
-                if (instance == null)
-                {
-                    instance = new RecipeRepository();
-                }
-                return instance;
+                instance = new RecipeRepository(database);
             }
+            return instance;
         }
+
         public List<Recipe> SearchRecipes(ISearchStrategy searchStrategy, string query)
         {
             return searchStrategy.Search(database, query);
@@ -63,7 +60,6 @@ namespace lab6.Classes
             }
             catch (Exception ex)
             {
-                
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
             finally
@@ -73,7 +69,5 @@ namespace lab6.Classes
 
             return recipes;
         }
-
-        }
     }
-
+}

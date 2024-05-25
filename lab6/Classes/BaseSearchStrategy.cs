@@ -9,7 +9,7 @@ namespace lab6.Classes
 {
     public abstract class BaseSearchStrategy : ISearchStrategy
     {
-        protected List<Recipe> ExecuteSearch(db database, string sqlQuery, Action<MySqlCommand> parameterSetter)
+        protected List<Recipe> ExecuteSearch(IDatabase database, string sqlQuery, Action<MySqlCommand> parameterSetter)
         {
             List<Recipe> recipes = new List<Recipe>();
             database.OpenConnection();
@@ -36,11 +36,8 @@ namespace lab6.Classes
             database.CloseConnection();
             return recipes;
         }
-
-        public abstract List<Recipe> Search(db database, string query);
+        public abstract List<Recipe> Search(IDatabase database, string query);
     }
-
-    
 }
 
 

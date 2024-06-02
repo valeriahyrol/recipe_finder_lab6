@@ -1,4 +1,5 @@
 ﻿using lab6.Classes;
+using lab6.Classes.Strategies;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,11 +19,11 @@ namespace lab6
         public SearchForm()
         {
             InitializeComponent();
-            repository = RecipeRepository.Instance;
+            repository = RecipeRepository.Instance();
             SearchButton.Click += SearchButton_Click;
         }
 
-        private void SearchButton_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object? sender, EventArgs e)
         {
             string query = SearchTextBox.Text;
 
@@ -32,7 +33,7 @@ namespace lab6
                 return;
             }
 
-            ISearchStrategy strategy = GetSearchStrategy();
+            ISearchStrategy? strategy = GetSearchStrategy();
 
             if (strategy == null)
             {
@@ -49,7 +50,7 @@ namespace lab6
             return !string.IsNullOrEmpty(query) && query.All(c => char.IsLetterOrDigit(c) || char.IsWhiteSpace(c));
         }
 
-        private ISearchStrategy GetSearchStrategy()
+        private ISearchStrategy? GetSearchStrategy()
         {
             if (SearchByNameRadioButton.Checked)
             {
@@ -82,11 +83,6 @@ namespace lab6
             }
 
             ResultsDataGridView.DataSource = recipes;
-        }
-
-        private void SearchByIngredientsRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

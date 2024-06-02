@@ -16,7 +16,7 @@ namespace lab6
     public partial class AllInfo : Form
     {
         private RecipeController controller;
-        private DataGridView dataGridView;
+        private DataGridView dataGridView = new DataGridView();
 
         public AllInfo()
         {

@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using lab6.Classes.DataBase;
+using lab6.Classes.Strategies;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,19 +11,16 @@ namespace lab6.Classes
 {
     public class RecipeRepository : IRecipeRepository
     {
-        private static RecipeRepository instance;
-        private IDatabase database;
+        private static RecipeRepository? instance = null;
+        private IDatabase database = new DB();
 
-        private RecipeRepository(IDatabase database)
-        {
-            this.database = database;
-        }
+        private RecipeRepository() { }
 
-        public static RecipeRepository Instance(IDatabase database)
+        public static RecipeRepository Instance()
         {
             if (instance == null)
             {
-                instance = new RecipeRepository(database);
+                instance = new RecipeRepository();
             }
             return instance;
         }
@@ -49,8 +48,8 @@ namespace lab6.Classes
                             Recipe recipe = new Recipe
                             {
                                 Id = reader.GetInt32("id"),
-                                Title = reader.GetString("title"),
-                                Text = reader.GetString("text")
+                                Title = reader.GetString("title")!,
+                                Text = reader.GetString("text")!
                             };
 
                             recipes.Add(recipe);

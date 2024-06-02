@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 
-namespace lab6.Classes
+namespace lab6.Classes.DataBase
 {
-    public class db : IDatabase
+    public class DB : IDatabase
     {
-        private MySqlConnection connection;
-
-        public db(string connectionString)
-        {
-            connection = new MySqlConnection(connectionString);
-        }
+        private MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
         public void OpenConnection()
         {

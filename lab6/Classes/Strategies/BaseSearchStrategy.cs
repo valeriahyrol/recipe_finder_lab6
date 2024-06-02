@@ -1,11 +1,12 @@
-﻿using MySql.Data.MySqlClient;
+﻿using lab6.Classes.DataBase;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab6.Classes
+namespace lab6.Classes.Strategies
 {
     public abstract class BaseSearchStrategy : ISearchStrategy
     {
@@ -24,8 +25,8 @@ namespace lab6.Classes
                         Recipe recipe = new Recipe
                         {
                             Id = reader.GetInt32("id"),
-                            Title = reader.GetString("title"),
-                            Text = reader.GetString("text")
+                            Title = reader.GetString("title")!,
+                            Text = reader.GetString("text")!
                         };
 
                         recipes.Add(recipe);

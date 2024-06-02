@@ -88,7 +88,6 @@
             SearchByIngredientsRadioButton.TabStop = true;
             SearchByIngredientsRadioButton.Text = "Пошук за інгрідієнтом";
             SearchByIngredientsRadioButton.UseVisualStyleBackColor = true;
-            SearchByIngredientsRadioButton.CheckedChanged += SearchByIngredientsRadioButton_CheckedChanged;
             // 
             // SearchByIdRadioButton
             // 

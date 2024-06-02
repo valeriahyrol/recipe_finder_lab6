@@ -9,10 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="lab6.csproj" />
-    <None Include="lab6.csproj.user" />
     <None Include="lab_6.csproj" />
     <None Include="lab_6.csproj.user" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.4.0" />
   </ItemGroup>
 
 </Project>

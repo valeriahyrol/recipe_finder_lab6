@@ -11,10 +11,10 @@ namespace lab6.Classes
         private AllInfo view;
         private IRecipeRepository repository;
 
-        public RecipeController(AllInfo view, IRecipeRepository repository)
+        public RecipeController(AllInfo view)
         {
             this.view = view;
-            this.repository = repository;
+            this.repository = RecipeRepository.Instance();
         }
 
         public List<Recipe> LoadRecipes()
